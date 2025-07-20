@@ -11,6 +11,7 @@ const StyledHomeHeader = styled.div`
   height: 80px;
   width: 100%;
   justify-content: space-around;
+  z-index: 5;
 `;
 
 function HomeHeader() {

@@ -68,9 +68,9 @@ const GlobalStyles = createGlobalStyle`
     
     &.light-mode{
     --color-primary: #f07167;
-    /* --color-primary-dark: #780000; */
-    --color-secondary: #003049;
-    /* --color-secondary-dark: #003049; */
+    --color-primary-dark: #780000;
+    --color-secondary: #669BBC;
+    --color-secondary-dark: #003049;
     --color-bg-0: #edf2fb;
     --color-bg-1: #ccdbfd;
     --color-bg-2: #abc4ff;
@@ -83,9 +83,9 @@ const GlobalStyles = createGlobalStyle`
 
     &, &.dark-mode{
     --color-primary: #f07167;
-    /* --color-primary-dark: #780000; */
+    --color-primary-dark: #780000;
     --color-secondary: #669BBC;
-    /* --color-secondary-dark: #003049; */
+    --color-secondary-dark: #003049;
     --color-bg-0: #090C11;
     --color-bg-1: #0E131B;
     --color-bg-2: #19202F;
