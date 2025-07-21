@@ -12,6 +12,17 @@ const StyledHomeHeader = styled.div`
   width: 100%;
   justify-content: space-around;
   z-index: 5;
+
+  @media (max-width: 625px) {
+    & > :first-child {
+      display: none;
+    }
+    height: 70px;
+
+    a {
+      font-size: 1.5rem;
+    }
+  }
 `;
 
 function HomeHeader() {

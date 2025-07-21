@@ -14,33 +14,75 @@ const StyledContainer = styled.div`
   align-items: center;
   justify-content: center;
   height: 100%;
+
+  @media (max-width: 780px) {
+    flex-direction: column;
+  }
+
   h1 {
     font-family: "Ubuntu Mono", monospace;
     font-weight: 400;
     font-style: normal;
-    font-size: 96px;
+    font-size: 8.5rem;
     line-height: 10rem;
     position: relative;
     z-index: 5;
     pointer-events: none;
+
+    @media (max-width: 1200px) {
+      font-size: 7rem;
+      line-height: 8rem;
+    }
+
+    @media (max-width: 950px) {
+      font-size: 6rem;
+      line-height: 7rem;
+    }
+
+    @media (max-width: 580px) {
+      font-size: 5rem;
+      line-height: 6rem;
+    }
   }
   h2 {
     font-family: "Ubuntu Mono", monospace;
     font-weight: 400;
     font-style: normal;
-    font-size: 78px;
+    font-size: 6rem;
     line-height: 10rem;
     position: relative;
     z-index: 5;
     pointer-events: none;
+
+    @media (max-width: 1200px) {
+      font-size: 5rem;
+      line-height: 8rem;
+    }
+
+    @media (max-width: 580px) {
+      font-size: 4rem;
+      line-height: 6rem;
+    }
   }
 `;
 const Img = styled.img`
   margin: 5rem;
-  width: 600px;
+  width: 500px;
   pointer-events: none;
   position: relative;
   z-index: 5;
+
+  @media (max-width: 1200px) {
+    width: 400px;
+  }
+
+  @media (max-width: 950px) {
+    width: 300px;
+  }
+
+  @media (max-width: 450px) {
+    width: 250px;
+  }
 `;
 
 const StyledBackground = styled.div`
@@ -48,6 +90,15 @@ const StyledBackground = styled.div`
   height: 100%;
   width: 100%;
   position: absolute;
+`;
+
+const StyledButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+  @media (max-width: 1200px) {
+    margin-top: 3rem;
+  }
 `;
 
 function Homepage() {
@@ -72,17 +123,11 @@ function Homepage() {
             I'm Theo
           </h1>
           <h2>React Developer</h2>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              marginTop: "5rem",
-            }}
-          >
+          <StyledButtonContainer>
             <Button variation="primary" size="large">
               Contact
             </Button>
-          </div>
+          </StyledButtonContainer>
         </div>
         <Img src="/profile-image.jpg"></Img>
       </StyledContainer>
