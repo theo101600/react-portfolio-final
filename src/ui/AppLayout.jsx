@@ -1,11 +1,21 @@
-import { Outlet } from "react-router";
+import { styled } from "styled-components";
+import MainPanel from "./MainPanel";
+import SidePanel from "./SidePanel";
+
+const StyledAppLayout = styled.div`
+  background-color: var(--color-bg-2);
+  padding: 2.4rem;
+  display: grid;
+  grid-template-columns: 40rem 1fr;
+  height: 100vh;
+`;
 
 function AppLayout() {
   return (
-    <div>
-      <h1>App Layout</h1>
-      <Outlet />
-    </div>
+    <StyledAppLayout>
+      <SidePanel/>
+      <MainPanel/>
+    </StyledAppLayout>
   );
 }
 

@@ -120,9 +120,9 @@ function Homepage() {
         <div>
           <h1>
             Hi, <br />
-            I'm Theo
+            HFNSOUTN
           </h1>
-          <h2>React Developer</h2>
+          <h2>HANLGUIRNALSHE</h2>
           <StyledButtonContainer>
             <Button variation="primary" size="large">
               Contact
