@@ -8,13 +8,17 @@ const StyledAppLayout = styled.div`
   display: grid;
   grid-template-columns: 40rem 1fr;
   height: 100vh;
+
+  @media (max-width: 1150px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 function AppLayout() {
   return (
     <StyledAppLayout>
-      <SidePanel/>
-      <MainPanel/>
+      <SidePanel />
+      <MainPanel />
     </StyledAppLayout>
   );
 }

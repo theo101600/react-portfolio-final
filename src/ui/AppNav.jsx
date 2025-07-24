@@ -18,7 +18,15 @@ const StyledContainer = styled.div`
   svg {
     margin-right: 1.2rem;
   }
-`
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+`;
 
 const StyledNavLink = styled(NavLink)`
   position: relative;
@@ -35,15 +43,12 @@ const StyledNavLink = styled(NavLink)`
 
   @media (max-width: 550px) {
     padding: 0 10px;
+    font-size: 16px;
   }
 
-  @media (max-width: 450px) {
-    padding: 0 3px;
-    font-size: 5px;
-  }
-  @media (max-width: 400px) {
-    padding: 0 1px;
-    font-size: 1px;
+  @media (max-width: 480px) {
+    padding: 0 5px;
+    font-size: 14px;
   }
 
   &::before {
@@ -88,7 +93,6 @@ function AppNav() {
   return (
     <nav>
       <NavList>
-
         <StyledNavLink to="/about">
           <StyledContainer>
             <IoMdInformationCircle />
