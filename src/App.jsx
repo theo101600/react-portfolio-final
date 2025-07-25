@@ -1,4 +1,10 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router";
+import {
+  BrowserRouter,
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router";
 import Homepage from "./pages/Homepage";
 import AppLayout from "./ui/AppLayout";
 import About from "./pages/About";
@@ -10,23 +16,23 @@ import GlobalStyles from "./styles/GlobalStyles";
 import { DarkModeProvider } from "./context/DarkModeContext";
 
 function App() {
+  const location = useLocation();
+
   return (
     <DarkModeProvider>
       <GlobalStyles />
-      <BrowserRouter>
-        <Routes>
-          <Route index element={<Navigate replace to="home" />} />
-          <Route path="home" element={<Homepage />} />
-          <Route element={<AppLayout />}>
-            <Route path="about" element={<About />} />
-            <Route path="resume" element={<Resume />} />
-            <Route path="portfolio" element={<Portfolio />} />
-            <Route path="contact" element={<Contact />} />
-          </Route>
-          <Route path="*" element={<PageNotFound />} />
-          <Route />
-        </Routes>
-      </BrowserRouter>
+      <Routes location={location} key={location.pathname}>
+        <Route index element={<Navigate replace to="home" />} />
+        <Route path="home" element={<Homepage />} />
+        <Route element={<AppLayout />}>
+          <Route path="about" element={<About />} />
+          {/* <Route path="resume" element={<Resume />} /> */}
+          <Route path="portfolio" element={<Portfolio />} />
+          <Route path="contact" element={<Contact />} />
+        </Route>
+        <Route path="*" element={<PageNotFound />} />
+        <Route />
+      </Routes>
     </DarkModeProvider>
   );
 }

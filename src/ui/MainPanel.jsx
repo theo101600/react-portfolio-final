@@ -1,7 +1,8 @@
-import { Outlet } from "react-router";
+import { Outlet, useLocation } from "react-router";
 import { styled } from "styled-components";
 import AppNav from "./AppNav";
 import DarkModeToggle from "./DarkModeToggle";
+import { useEffect, useState } from "react";
 
 const StyledMainPanel = styled.div`
   background-color: var(--color-bg-1);
@@ -57,11 +58,20 @@ const StyledNavContainer = styled.div`
 `;
 
 function MainPanel() {
+  const location = useLocation();
+  const [currentURL, setCurrentURL] = useState(
+    location.pathname.split("/").pop()
+  );
+
+  useEffect(() => {
+    setCurrentURL(location.pathname.split("/").pop());
+  }, [location, setCurrentURL]);
+
   return (
     <StyledMainPanel>
       <StyledHeader>
         <div>
-          <h1>Portfolio</h1>
+          <h1>{currentURL.charAt(0).toUpperCase() + currentURL.slice(1)}</h1>
         </div>
         <StyledNavContainer>
           <AppNav />

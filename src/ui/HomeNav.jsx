@@ -77,7 +77,7 @@ function HomeNav() {
     <nav>
       <NavList>
         <StyledNavLink to="/about">About</StyledNavLink>
-        <StyledNavLink to="/resume">Resume</StyledNavLink>
+        {/* <StyledNavLink to="/resume">Resume</StyledNavLink> */}
         <StyledNavLink to="/portfolio">Portfolio</StyledNavLink>
         <StyledNavLink to="/contact">Contact</StyledNavLink>
       </NavList>

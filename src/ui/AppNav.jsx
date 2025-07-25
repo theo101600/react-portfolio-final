@@ -100,12 +100,12 @@ function AppNav() {
           </StyledContainer>
         </StyledNavLink>
 
-        <StyledNavLink to="/resume">
+        {/* <StyledNavLink to="/resume">
           <StyledContainer>
             <IoNewspaperSharp />
             Resume
           </StyledContainer>
-        </StyledNavLink>
+        </StyledNavLink> */}
 
         <StyledNavLink to="/portfolio">
           <StyledContainer>
