@@ -54,6 +54,7 @@ const StyledNavContainer = styled.div`
     padding: 0 3px;
     font-size: 5px;
   }
+
   @media (max-width: 400px) {
     padding: 0 1px;
     font-size: 1px;
