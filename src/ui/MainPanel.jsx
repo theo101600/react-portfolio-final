@@ -10,6 +10,9 @@ const StyledMainPanel = styled.div`
   margin: 0 5px;
 
   height: calc(100vh - 6rem);
+  @media (max-width: 550px) {
+    height: 100%;
+  }
 `;
 
 const StyledHeader = styled.header`
@@ -57,6 +60,10 @@ const StyledNavContainer = styled.div`
   }
 `;
 
+const StyledOutlet = styled.div`
+  padding: 0.5rem 2rem;
+`;
+
 function MainPanel() {
   const location = useLocation();
   const [currentURL, setCurrentURL] = useState(
@@ -78,7 +85,9 @@ function MainPanel() {
           <DarkModeToggle />
         </StyledNavContainer>
       </StyledHeader>
-      <Outlet />
+      <StyledOutlet>
+        <Outlet />
+      </StyledOutlet>
     </StyledMainPanel>
   );
 }

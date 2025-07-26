@@ -12,6 +12,9 @@ const StyledAppLayout = styled.div`
   @media (max-width: 1150px) {
     grid-template-columns: 1fr;
   }
+  @media (max-width: 550px) {
+    padding: 0.5rem;
+  }
 `;
 
 function AppLayout() {
