@@ -19,6 +19,11 @@ const StyledSidePanel = styled.div`
 
   h1 {
     font-weight: 300;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
   }
 
   span {

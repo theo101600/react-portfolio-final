@@ -26,7 +26,10 @@ const StyledProfileInfo = styled.div`
   }
   p:nth-of-type(1) {
     text-transform: uppercase;
-    letter-spacing: 0.3rem;
+    font-size: 1rem;
+  }
+  p:nth-of-type(2) {
+    font-weight: bold;
   }
 `;
 
