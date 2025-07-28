@@ -17,7 +17,7 @@ const StyledProfileInfo = styled.div`
     margin-left: auto;
     background: transparent;
     border: none;
-    color: var(--color-text-a-1);
+    color: var(--color-text-a-0);
     cursor: pointer;
 
     :hover {
