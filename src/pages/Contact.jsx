@@ -5,6 +5,7 @@ import { FaMailBulk, FaSmile } from "react-icons/fa";
 import { useDarkMode } from "../context/DarkModeContext";
 import Button from "../ui/Button";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const formAccessToken = import.meta.env.VITE_WEB3FORM_TOKEN;
 
@@ -119,10 +120,12 @@ function Contact() {
 
     if (data.success) {
       setResult("Form Submitted Successfully");
+      toast.success("Email sent!");
       event.target.reset();
     } else {
       console.log("Error", data);
       setResult(data.message);
+      toast.error("Sending email failed!");
     }
   };
 

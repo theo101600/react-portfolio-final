@@ -3,6 +3,7 @@ import CopyToClipboard from "react-copy-to-clipboard";
 import styled from "styled-components";
 import { FaCopy } from "react-icons/fa6";
 import { FaCheck } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 const StyledProfileInfo = styled.div`
   width: 90%;
@@ -46,6 +47,7 @@ function ProfileInfo({ icon, category, value }) {
         text={value}
         onCopy={() => {
           setCopied(true);
+          toast.success("Text copied!");
           setTimeout(() => setCopied(false), 1500);
         }}
       >
