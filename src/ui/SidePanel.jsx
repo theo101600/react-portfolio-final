@@ -5,6 +5,7 @@ import ProfileInfo from "./ProfileInfo";
 import { MdEmail } from "react-icons/md";
 import { IoMdPhonePortrait } from "react-icons/io";
 import { FaMapLocationDot } from "react-icons/fa6";
+import Socials from "./Socials";
 
 const StyledSidePanel = styled.div`
   background-color: var(--color-bg-1);
@@ -40,6 +41,10 @@ const StyledSidePanel = styled.div`
     margin: 2.5rem 0;
   }
 
+  div:last-child {
+    margin-top: auto;
+  }
+
   @media (max-width: 1150px) {
     display: none;
   }
@@ -67,6 +72,7 @@ function SidePanel() {
         category={"Location"}
         value={"Somewhere, Philippines"}
       />
+      <Socials />
     </StyledSidePanel>
   );
 }

@@ -1,8 +1,4 @@
 import { NavLink } from "react-router";
-import { IoMdInformationCircle } from "react-icons/io";
-import { IoNewspaperSharp } from "react-icons/io5";
-import { ImBriefcase } from "react-icons/im";
-import { RiContactsBook3Fill } from "react-icons/ri";
 import styled from "styled-components";
 
 const NavList = styled.ul`
@@ -90,10 +86,7 @@ function AppNav() {
     <nav>
       <NavList>
         <StyledNavLink to="/about">
-          <StyledContainer>
-            <IoMdInformationCircle />
-            About
-          </StyledContainer>
+          <StyledContainer>About</StyledContainer>
         </StyledNavLink>
 
         {/* <StyledNavLink to="/resume">
@@ -104,17 +97,11 @@ function AppNav() {
         </StyledNavLink> */}
 
         <StyledNavLink to="/portfolio">
-          <StyledContainer>
-            <ImBriefcase />
-            Portfolio
-          </StyledContainer>
+          <StyledContainer>Portfolio</StyledContainer>
         </StyledNavLink>
 
         <StyledNavLink to="/contact">
-          <StyledContainer>
-            <RiContactsBook3Fill />
-            Contact
-          </StyledContainer>
+          <StyledContainer>Contact</StyledContainer>
         </StyledNavLink>
       </NavList>
     </nav>

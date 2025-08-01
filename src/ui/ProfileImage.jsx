@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router";
 import styled from "styled-components";
 
 const StyledProfileImage = styled.div`
@@ -9,10 +10,18 @@ const Img = styled.img`
 `;
 
 function ProfileImage() {
+  const navigate = useNavigate();
+
   const src = "profile-image.jpg";
   return (
     <StyledProfileImage>
-      <Img src={src} alt="Profile Image" />
+      <Img
+        onClick={() => {
+          navigate("/");
+        }}
+        src={src}
+        alt="Profile Image"
+      />
     </StyledProfileImage>
   );
 }

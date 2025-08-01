@@ -3,6 +3,8 @@ import HomeHeader from "../ui/HomeHeader";
 import Button from "../ui/Button";
 import Squares from "../ui/Squares";
 import { useDarkMode } from "../context/DarkModeContext";
+import Socials from "../ui/Socials";
+import { useNavigate } from "react-router";
 
 const StyledHomepage = styled.div`
   display: flex;
@@ -86,7 +88,6 @@ const Img = styled.img`
 `;
 
 const StyledBackground = styled.div`
-  /* background-color: red; */
   height: 100%;
   width: 100%;
   position: absolute;
@@ -94,8 +95,10 @@ const StyledBackground = styled.div`
 
 const StyledButtonContainer = styled.div`
   display: flex;
-  justify-content: center;
-  margin-top: 5rem;
+  flex-direction: column;
+  margin-top: 3rem;
+  align-items: center;
+  gap: 2rem;
   @media (max-width: 1200px) {
     margin-top: 3rem;
   }
@@ -104,6 +107,9 @@ const StyledButtonContainer = styled.div`
 function Homepage() {
   const { isDarkMode } = useDarkMode();
   console.log(isDarkMode);
+
+  const navigate = useNavigate();
+
   return (
     <StyledHomepage>
       <HomeHeader />
@@ -124,9 +130,14 @@ function Homepage() {
           </h1>
           <h2>HANLGUIRNALSHE</h2>
           <StyledButtonContainer>
-            <Button variation="primary" size="large">
+            <Button
+              onClick={() => navigate("/contact")}
+              variation="primary"
+              size="large"
+            >
               Contact
             </Button>
+            <Socials />
           </StyledButtonContainer>
         </div>
         <Img src="/profile-image.jpg"></Img>
