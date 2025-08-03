@@ -5,7 +5,6 @@ import { PiCircuitryFill } from "react-icons/pi";
 import { IoIosCube } from "react-icons/io";
 import ButtonIcon from "../ui/ButtonIcon";
 import { MdFileDownload } from "react-icons/md";
-import Map from "../ui/Map";
 
 const skills = [
   {
