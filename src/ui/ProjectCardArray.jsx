@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import ProjectCard from "./ProjectCard";
+import Modal from "./Modal";
+import React from "react";
+import ProjectContent from "./ProjectContent";
 
 const StyledProjectCardArray = styled.div`
   display: flex;
@@ -89,8 +92,8 @@ const projects = [
     tech_stack: ["KiCad", "SolidWorks", "FreeCad"],
     image_url:
       "https://images.unsplash.com/photo-1677429063763-45a6a49c1baf?q=80&w=1058&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    project_url: "https://markdowncms.vercel.app",
-    github_url: "https://github.com/yourusername/markdown-cms",
+    project_url: "",
+    github_url: "",
     created_at: "2025-07-10T08:15:00Z",
     markdown: "/markdowns/YelpCamp.md",
   },
@@ -102,7 +105,7 @@ const projects = [
     tech_stack: ["KiCad", "SolidWorks", "FreeCad"],
     image_url:
       "https://images.unsplash.com/photo-1578269174936-2709b6aeb913?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    project_url: "https://markdowncms.vercel.app",
+    project_url: "",
     github_url: "https://github.com/yourusername/markdown-cms",
     created_at: "2025-07-10T08:15:00Z",
     markdown: "/markdowns/YelpCamp.md",
@@ -112,9 +115,18 @@ const projects = [
 function ProjectCardArray() {
   return (
     <StyledProjectCardArray>
-      {projects.map((project) => (
-        <ProjectCard key={project.id} project={project} />
-      ))}
+      <Modal>
+        {projects.map((project) => (
+          <React.Fragment key={project.id}>
+            <Modal.Open opens={project.title}>
+              <ProjectCard project={project} />
+            </Modal.Open>
+            <Modal.Window name={project.title}>
+              <ProjectContent project={project} />
+            </Modal.Window>
+          </React.Fragment>
+        ))}
+      </Modal>
     </StyledProjectCardArray>
   );
 }

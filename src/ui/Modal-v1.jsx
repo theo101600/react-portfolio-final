@@ -2,7 +2,6 @@ import { IoIosClose } from "react-icons/io";
 import styled from "styled-components";
 import DarkModeToggle from "./DarkModeToggle";
 import { createPortal } from "react-dom";
-import { cloneElement, createContext, useContext, useState } from "react";
 
 const StyledModal = styled.div`
   position: fixed;
@@ -70,51 +69,22 @@ const StyledButtonContainer = styled.div`
   }
 `;
 
-const ModalContext = createContext();
-
-function Modal({ children }) {
-  const [openName, setOpenName] = useState("");
-  const close = () => setOpenName("");
-  const open = setOpenName;
-
-  return (
-    <ModalContext.Provider value={{ openName, close, open }}>
-      {children}
-    </ModalContext.Provider>
-  );
-}
-
-function Open({ children, opens: opensWindowName }) {
-  const { open } = useContext(ModalContext);
-
-  return cloneElement(children, {
-    onClick: () => {
-      open(opensWindowName);
-    },
-  });
-}
-
-function Window({ children, name }) {
-  const { openName, close } = useContext(ModalContext);
-  if (name !== openName) return null;
-
+function Modal({ children, onClose }) {
   return createPortal(
     <Overlay>
       <StyledModal>
         <StyledButtonContainer>
           <DarkModeToggle />
-          <button onClick={close}>
+          <button onClick={onClose}>
             <IoIosClose />
           </button>
         </StyledButtonContainer>
+
         <StyledContentContainer>{children}</StyledContentContainer>
       </StyledModal>
     </Overlay>,
     document.body
   );
 }
-
-Modal.Open = Open;
-Modal.Window = Window;
 
 export default Modal;
