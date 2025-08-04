@@ -1,4 +1,12 @@
-import { DiMongodb, DiVisualstudio } from "react-icons/di";
+import {
+  DiMongodb,
+  DiMysql,
+  DiPostgresql,
+  DiPython,
+  DiSass,
+  DiSqllite,
+  DiVisualstudio,
+} from "react-icons/di";
 import {
   FaBootstrap,
   FaCss3Alt,
@@ -20,14 +28,19 @@ import {
   SiAdobeillustrator,
   SiAdobephotoshop,
   SiAndroidstudio,
+  SiArduino,
   SiBlender,
+  SiExpress,
   SiKicad,
   SiLeaflet,
+  SiMapbox,
+  SiMongoose,
   SiPostman,
   SiReactquery,
   SiReactrouter,
   SiRedux,
   SiStyledcomponents,
+  SiVite,
 } from "react-icons/si";
 import SolidWorksIcon from "../assets/SolidWorksIcon";
 import { BiLogoVisualStudio } from "react-icons/bi";
@@ -66,6 +79,16 @@ const techStackIcons = {
   Photoshop: <SiAdobephotoshop size={ICON_SIZE} />,
   Illustrator: <SiAdobeillustrator size={ICON_SIZE} />,
   FreeCad: <FreeCadIcon size={ICON_SIZE} />,
+  Express: <SiExpress size={ICON_SIZE} />,
+  Vite: <SiVite size={ICON_SIZE} />,
+  Python: <DiPython size={ICON_SIZE} />,
+  Postgresql: <DiPostgresql size={ICON_SIZE} />,
+  MySql: <DiMysql size={ICON_SIZE} />,
+  Sqllite: <DiSqllite size={ICON_SIZE} />,
+  Sass: <DiSass size={ICON_SIZE} />,
+  Arduino: <SiArduino size={ICON_SIZE} />,
+  Mongoose: <SiMongoose size={ICON_SIZE} />,
+  Mapbox: <SiMapbox size={ICON_SIZE} />,
 };
 
 export { techStackIcons };

@@ -2,7 +2,14 @@ import { IoIosClose } from "react-icons/io";
 import styled from "styled-components";
 import DarkModeToggle from "./DarkModeToggle";
 import { createPortal } from "react-dom";
-import { cloneElement, createContext, useContext, useState } from "react";
+import {
+  cloneElement,
+  createContext,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 const StyledModal = styled.div`
   position: fixed;
@@ -68,6 +75,12 @@ const StyledButtonContainer = styled.div`
   :hover {
     color: var(--color-primary);
   }
+
+  @media (max-width: 800px) {
+    top: 1.5rem;
+    right: 1.5rem;
+    flex-direction: column-reverse;
+  }
 `;
 
 const ModalContext = createContext();
@@ -96,12 +109,50 @@ function Open({ children, opens: opensWindowName }) {
 
 function Window({ children, name }) {
   const { openName, close } = useContext(ModalContext);
+  const ref = useRef();
+
+  useEffect(
+    function () {
+      if (name !== openName) {
+        return;
+      }
+
+      console.log(`Modal "${name}" is rendering - run the real logic`);
+
+      function handleClick(e) {
+        if (ref.current && !ref.current.contains(e.target)) {
+          console.log("Clicked outside!");
+          close();
+        }
+      }
+
+      function handleKeyDown(e) {
+        if (e.key === "Escape") {
+          console.log("ESC key pressed!");
+          close();
+        }
+      }
+
+      const timer = setTimeout(() => {
+        document.addEventListener("click", handleClick);
+        document.addEventListener("keydown", handleKeyDown);
+      }, 100);
+
+      return () => {
+        clearTimeout(timer);
+        document.removeEventListener("click", handleClick);
+        document.removeEventListener("keydown", handleKeyDown);
+      };
+    },
+    [close, name, openName]
+  );
+
   if (name !== openName) return null;
 
   return createPortal(
     <Overlay>
-      <StyledModal>
-        <StyledButtonContainer>
+      <StyledModal ref={ref}>
+        <StyledButtonContainer onClick={(e) => e.stopPropagation()}>
           <DarkModeToggle />
           <button onClick={close}>
             <IoIosClose />

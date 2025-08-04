@@ -19,10 +19,17 @@ const StyledModalHeader = styled.div`
     font-size: 4rem;
     font-weight: 100;
     text-transform: uppercase;
+    flex-wrap: wrap;
   }
 
   svg {
     font-size: 80px;
+  }
+
+  @media (max-width: 800px) {
+    .type-icon {
+      display: none;
+    }
   }
 `;
 
@@ -57,16 +64,16 @@ function ProjectContent({ project }) {
   let icon;
   switch (type) {
     case "web-app":
-      icon = <FaCode />;
+      icon = <FaCode className="type-icon" />;
       break;
     case "electronics":
-      icon = <PiCircuitryFill />;
+      icon = <PiCircuitryFill className="type-icon" />;
       break;
     case "3d":
-      icon = <IoIosCube />;
+      icon = <IoIosCube className="type-icon" />;
       break;
     default:
-      icon = <AiFillQuestionCircle />;
+      icon = <AiFillQuestionCircle className="type-icon" />;
   }
 
   return (
@@ -78,13 +85,13 @@ function ProjectContent({ project }) {
           <StyledLinksContainer>
             {project_url && (
               <a href={project_url}>
-                <GoProjectSymlink /> Project URL
+                <GoProjectSymlink /> Project
               </a>
             )}
             {github_url && (
               <a href={github_url}>
                 <FaGithub />
-                Github URL
+                Github
               </a>
             )}
           </StyledLinksContainer>
