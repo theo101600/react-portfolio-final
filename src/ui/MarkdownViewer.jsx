@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import rehypeHighlight from "rehype-highlight";
+import Loader from "./Loader";
 
 const StyledMarkdownViewer = styled.div`
   padding: 2rem;
@@ -57,6 +58,10 @@ const StyledMarkdownViewer = styled.div`
     border: 1px solid var(--color-bg-1);
     padding: 0.6rem;
     text-align: left;
+
+    @media (max-width: 800px) {
+      font-size: 1.3rem;
+    }
   }
 
   th {
@@ -71,24 +76,46 @@ const StyledMarkdownViewer = styled.div`
   }
 `;
 
+const StyledLoaderContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 function MarkdownViewer({ markdown }) {
   const [content, setContent] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     fetch(markdown)
       .then((res) => res.text())
-      .then(setContent)
-      .catch((err) => console.error("Failed to load markdown:", err));
+      .then((text) => {
+        setContent(text);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.error("Failed to load markdown:", err);
+        setIsLoading(false);
+      });
   }, [markdown]);
 
   return (
     <StyledMarkdownViewer>
-      <ReactMarkdown
-        remarkPlugins={[remarkGfm]}
-        rehypePlugins={[rehypeRaw, rehypeHighlight]}
-      >
-        {content}
-      </ReactMarkdown>
+      {isLoading ? (
+        <StyledLoaderContainer>
+          <Loader />
+        </StyledLoaderContainer>
+      ) : (
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+          rehypePlugins={[rehypeRaw, rehypeHighlight]}
+        >
+          {content}
+        </ReactMarkdown>
+      )}
     </StyledMarkdownViewer>
   );
 }

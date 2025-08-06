@@ -13,7 +13,7 @@ const StyledAppLayout = styled.div`
     grid-template-columns: 1fr;
   }
   @media (max-width: 550px) {
-    padding: 0.5rem;
+    padding: 0.3rem;
   }
 `;
 

@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import ProjectContent from "./ProjectContent";
 import { useProjects } from "../hooks/useProjects";
 import { Bouncy } from "ldrs/react";
+import { useSearchParams } from "react-router";
 
 const StyledProjectCardArray = styled.div`
   display: flex;
@@ -123,7 +124,8 @@ const StyledLoader = styled.div`
 // ];
 
 function ProjectCardArray() {
-  const { projects, isLoading, isError } = useProjects();
+  const { projects = [], isLoading, isError } = useProjects();
+  const [searchParams] = useSearchParams();
   const [computedColor, setComputedColor] = useState("");
 
   useEffect(() => {
@@ -132,6 +134,18 @@ function ProjectCardArray() {
       .trim();
     setComputedColor(color);
   }, []);
+
+  const filterValue = searchParams.get("type") || "all";
+  console.log(filterValue);
+
+  let filteredProjects;
+  if (filterValue === "all") {
+    filteredProjects = projects;
+  } else {
+    filteredProjects = projects.filter(
+      (project) => project.type === filterValue
+    );
+  }
 
   if (isLoading)
     return (
@@ -145,7 +159,7 @@ function ProjectCardArray() {
   return (
     <StyledProjectCardArray>
       <Modal>
-        {projects.map((project) => (
+        {filteredProjects.map((project) => (
           <React.Fragment key={project.id}>
             <Modal.Open opens={project.title}>
               <ProjectCard project={project} />

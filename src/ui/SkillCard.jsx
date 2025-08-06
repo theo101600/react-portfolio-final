@@ -14,6 +14,10 @@ const StyledSkillCard = styled.div`
     font-size: 8rem;
     margin: 1.2rem;
   }
+
+  @media (max-width: 395px) {
+    width: 310px;
+  }
 `;
 
 const StyledContainer = styled.div`

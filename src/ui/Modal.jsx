@@ -23,8 +23,8 @@ const StyledModal = styled.div`
 `;
 
 const StyledContentContainer = styled.div`
-  max-height: 80vh; /* key for scroll behavior */
-  width: 80vw; /* optional: ensure good width */
+  max-height: 80vh;
+  width: 80vw;
   overflow-y: auto;
   overflow-x: hidden;
   padding-right: 1rem;
@@ -60,7 +60,8 @@ const Overlay = styled.div`
 
 const StyledButtonContainer = styled.div`
   display: flex;
-  background: none;
+  background-color: var(--color-bg-2);
+  border-radius: 8px;
   border: none;
   position: absolute;
   top: 2.5rem;
@@ -77,9 +78,16 @@ const StyledButtonContainer = styled.div`
   }
 
   @media (max-width: 800px) {
-    top: 1.5rem;
-    right: 1.5rem;
+    top: 1rem;
+    right: 1rem;
     flex-direction: column-reverse;
+    background: none;
+    svg {
+      width: 3.5rem;
+    }
+    svg:first-of-type {
+      margin-bottom: 1.3rem;
+    }
   }
 `;
 

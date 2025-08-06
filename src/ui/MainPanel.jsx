@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 const StyledMainPanel = styled.div`
   background-color: var(--color-bg-1);
   border-radius: 8px;
-  margin: 0 5px;
 
   height: calc(100vh - 6rem);
   @media (max-width: 550px) {

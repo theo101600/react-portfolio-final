@@ -117,13 +117,14 @@ const StyledSkillContainer = styled.div`
 
 const StyledCertificateContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 1rem;
   margin-top: 1rem;
 `;
 
 const StyledCertificateItem = styled.div`
   display: flex;
+  width: 300px;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;

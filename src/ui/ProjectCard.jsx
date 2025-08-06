@@ -6,6 +6,7 @@ import { PiCircuitryFill } from "react-icons/pi";
 import styled from "styled-components";
 import { Bouncy } from "ldrs/react";
 import "ldrs/react/Bouncy.css";
+import Loader from "./Loader";
 
 const StyledProjectCard = styled.div`
   display: flex;
@@ -13,7 +14,7 @@ const StyledProjectCard = styled.div`
   align-items: center;
   justify-content: space-around;
   width: 320px;
-  height: 290px;
+  height: 250px;
   border-radius: 8px;
 
   h3 {
@@ -60,10 +61,6 @@ const StyledImageContainer = styled.div`
 `;
 
 function ProjectCard({ project, onClick }) {
-  const computedColor = getComputedStyle(document.documentElement)
-    .getPropertyValue("--color-primary")
-    .trim();
-
   const { title, description, type, image_url } = project;
   const [loading, setLoading] = useState(true);
 
@@ -86,14 +83,7 @@ function ProjectCard({ project, onClick }) {
   return (
     <StyledProjectCard onClick={onClick}>
       <StyledImageContainer>
-        {loading && (
-          <Bouncy
-            className="loader"
-            size="45"
-            speed="1"
-            color={computedColor}
-          />
-        )}
+        {loading && <Loader />}
 
         <img
           src={image_url}

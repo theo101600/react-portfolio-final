@@ -6,6 +6,7 @@ import { PiCircuitryFill } from "react-icons/pi";
 import styled from "styled-components";
 import TechStackArray from "./TechStackArray";
 import MarkdownViewer from "./MarkdownViewer";
+import ModelViewer from "./ModelViewer";
 
 const StyledModalHeader = styled.div`
   display: flex;
@@ -57,6 +58,12 @@ const StyledLinksContainer = styled.div`
   }
 `;
 
+const StyledModelViewerContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 function ProjectContent({ project }) {
   const { title, type, github_url, project_url, tech_stack, markdown } =
     project;
@@ -98,6 +105,29 @@ function ProjectContent({ project }) {
           <TechStackArray tech_stack={tech_stack} />
         </div>
       </StyledModalHeader>
+
+      {/* <StyledModelViewerContainer>
+        <ModelViewer
+          url="https://gomfxmkebyzbqwrxvdkj.supabase.co/storage/v1/object/public/3d-models//TrophyPCB.glb"
+          width="60%"
+          height={400}
+          defaultRotationX={0}
+          defaultRotationY={90}
+          // defaultZoom={1}
+          minZoomDistance={0.5}
+          maxZoomDistance={5}
+          enableMouseParallax={false}
+          enableHoverRotation={false}
+          ambientIntensity={0}
+          keyLightIntensity={0}
+          fillLightIntensity={0}
+          rimLightIntensity={0}
+          environmentPreset="park"
+          autoFrame={true}
+          showScreenshotButton={false}
+        />
+      </StyledModelViewerContainer> */}
+
       <MarkdownViewer markdown={markdown} />
     </>
   );
