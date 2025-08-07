@@ -5,6 +5,7 @@ import { PiCircuitryFill } from "react-icons/pi";
 import { IoIosCube } from "react-icons/io";
 import ButtonIcon from "../ui/ButtonIcon";
 import { MdFileDownload } from "react-icons/md";
+import CertificateItem from "../ui/CertificateItem";
 
 const skills = [
   {
@@ -26,46 +27,40 @@ const skills = [
 
 const certificates = [
   {
-    name: "React Developer Certification",
-    issuer: "Meta",
-    date: "2024",
-    pdfPath: "/certificates/js-cert.pdf",
+    name: "The Web Developer Bootcamp 2025",
+    issuer: "Udemy",
+    date: "February, 2025",
+    pdfPath:
+      "https://gomfxmkebyzbqwrxvdkj.supabase.co/storage/v1/object/public/certificates/UC-62ddd181-9fde-4586-9e23-f057f27055b3.pdf",
+    imagePath:
+      "https://gomfxmkebyzbqwrxvdkj.supabase.co/storage/v1/object/public/images/certificate-images/UC-62ddd181-9fde-4586-9e23-f057f27055b3.jpg",
   },
   {
-    name: "JavaScript Algorithms and Data Structures",
-    issuer: "freeCodeCamp",
-    date: "2023",
-    pdfPath: "/certificates/sample-pdf.pdf",
+    name: "Learning the JavaScript Language",
+    issuer: "LinkedIn Learning",
+    date: "March, 2025",
+    pdfPath:
+      "https://gomfxmkebyzbqwrxvdkj.supabase.co/storage/v1/object/public/certificates/CertificateOfCompletion_Learning%20the%20JavaScript%20Language.pdf",
+    imagePath:
+      "https://gomfxmkebyzbqwrxvdkj.supabase.co/storage/v1/object/public/images/certificate-images/CertificateOfCompletion_Learning%20the%20JavaScript%20Language.png",
   },
   {
-    name: "SOLIDWORKS Professional Certification",
-    issuer: "Dassault Systèmes",
-    date: "2023",
-    pdfPath: "/certificates/js-cert.pdf",
+    name: "CSS Essential Training",
+    issuer: "LinkedIn Learning",
+    date: "March, 2025",
+    pdfPath:
+      "https://gomfxmkebyzbqwrxvdkj.supabase.co/storage/v1/object/public/certificates/CertificateOfCompletion_CSS%20Essential%20Training.pdf",
+    imagePath:
+      "https://gomfxmkebyzbqwrxvdkj.supabase.co/storage/v1/object/public/images/certificate-images/CertificateOfCompletion_CSS%20Essential%20Training.png",
   },
   {
-    name: "SOLIDWORKS Professional Certification",
-    issuer: "Dassault Systèmes",
-    date: "2023",
-    pdfPath: "/certificates/js-cert.pdf",
-  },
-  {
-    name: "SOLIDWORKS Professional Certification",
-    issuer: "Dassault Systèmes",
-    date: "2023",
-    pdfPath: "/certificates/js-cert.pdf",
-  },
-  {
-    name: "SOLIDWORKS Professional Certification",
-    issuer: "Dassault Systèmes",
-    date: "2023",
-    pdfPath: "/certificates/js-cert.pdf",
-  },
-  {
-    name: "SOLIDWORKS Professional Certification",
-    issuer: "Dassault Systèmes",
-    date: "2023",
-    pdfPath: "/certificates/js-cert.pdf",
+    name: "Figma Essential Training: The Basics",
+    issuer: "LinkedIn Learning",
+    date: "May, 2025",
+    pdfPath:
+      "https://gomfxmkebyzbqwrxvdkj.supabase.co/storage/v1/object/public/certificates/CertificateOfCompletion_Figma%20Essential%20Training%20The%20Basics.pdf",
+    imagePath:
+      "https://gomfxmkebyzbqwrxvdkj.supabase.co/storage/v1/object/public/images/certificate-images/CertificateOfCompletion_Figma%20Essential%20Training%20The%20Basics.png",
   },
 ];
 
@@ -120,42 +115,11 @@ const StyledCertificateContainer = styled.div`
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 1rem;
-`;
-
-const StyledCertificateItem = styled.div`
-  display: flex;
-  width: 300px;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  border-radius: 8px;
-  background-color: var(--color-bg-0);
-`;
-
-const StyledCertificateInfo = styled.div`
-  flex: 1;
-
-  h3 {
-    margin: 0 0 0.5rem 0;
-  }
-
-  p {
-    margin: 0;
-    font-size: 0.9rem;
-  }
+  align-items: flex-start;
+  justify-content: center;
 `;
 
 function About() {
-  const handleDownload = (pdfPath, fileName) => {
-    const link = document.createElement("a");
-    link.href = pdfPath;
-    link.download = fileName;
-    link.target = "_blank";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   return (
     <StyledAbout>
       <StyledIntro>
@@ -182,24 +146,7 @@ function About() {
       <h1>Certificates</h1>
       <StyledCertificateContainer>
         {certificates.map((certificate, index) => (
-          <StyledCertificateItem key={index}>
-            <StyledCertificateInfo>
-              <h3>{certificate.name}</h3>
-              <p>
-                {certificate.issuer} • {certificate.date}
-              </p>
-            </StyledCertificateInfo>
-            <ButtonIcon
-              onClick={() =>
-                handleDownload(
-                  certificate.pdfPath,
-                  `${certificate.name.replace(/\s+/g, "_")}.pdf`
-                )
-              }
-            >
-              <MdFileDownload />
-            </ButtonIcon>
-          </StyledCertificateItem>
+          <CertificateItem certificate={certificate} index={index} />
         ))}
       </StyledCertificateContainer>
     </StyledAbout>
