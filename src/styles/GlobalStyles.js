@@ -117,7 +117,7 @@ html {
 body {
   font-family: "Poppins", sans-serif;
   color: var(--color-text-a-0);
-  background-color: var(--color-bg-1);
+  background-color: var(--color-bg-2);
 
   transition: color 0.3s, background-color 0.3s;
   min-height: 100vh;

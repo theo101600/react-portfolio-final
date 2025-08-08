@@ -54,7 +54,7 @@ function App() {
             },
           }}
         />
-        <Routes location={location} key={location.pathname}>
+        <Routes location={location}>
           <Route index element={<Navigate replace to="home" />} />
           <Route path="home" element={<Homepage />} />
           <Route element={<AppLayout />}>

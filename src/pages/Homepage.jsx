@@ -5,8 +5,9 @@ import Squares from "../ui/Squares";
 import { useDarkMode } from "../context/DarkModeContext";
 import Socials from "../ui/Socials";
 import { useNavigate } from "react-router";
+import { motion } from "framer-motion";
 
-const StyledHomepage = styled.div`
+const StyledHomepage = styled(motion.div)`
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -91,6 +92,7 @@ const StyledBackground = styled.div`
   height: 100%;
   width: 100%;
   position: absolute;
+  background-color: var(--color-bg-1);
 `;
 
 const StyledButtonContainer = styled.div`
@@ -110,8 +112,31 @@ function Homepage() {
 
   const navigate = useNavigate();
 
+  const homeVariants = {
+    hidden: { y: 100 },
+    visible: {
+      y: 0,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut",
+      },
+    },
+    exit: {
+      y: 100,
+      transition: {
+        duration: 0.2,
+        ease: "easeInOut",
+      },
+    },
+  };
+
   return (
-    <StyledHomepage>
+    <StyledHomepage
+      variants={homeVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
       <HomeHeader />
       <StyledContainer>
         <StyledBackground>
@@ -134,6 +159,8 @@ function Homepage() {
               onClick={() => navigate("/contact")}
               variation="primary"
               size="large"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
             >
               Contact
             </Button>

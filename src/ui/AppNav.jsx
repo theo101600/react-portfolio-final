@@ -28,12 +28,11 @@ const StyledNavLink = styled(NavLink)`
   transition: 0.5s;
   z-index: 1;
 
-  /* @media (max-width: 550px) {
+  @media (max-width: 500px) {
     padding: 0 10px;
-    font-size: 16px;
   }
 
-  @media (max-width: 480px) {
+  /* @media (max-width: 480px) {
     padding: 0 5px;
     font-size: 16px;
   } */

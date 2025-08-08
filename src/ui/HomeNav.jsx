@@ -21,18 +21,18 @@ const StyledNavLink = styled(NavLink)`
   transition: 0.5s;
   z-index: 1;
 
-  @media (max-width: 550px) {
+  @media (max-width: 500px) {
     padding: 0 10px;
   }
 
-  @media (max-width: 450px) {
+  /* @media (max-width: 450px) {
     padding: 0 3px;
     font-size: 5px;
   }
   @media (max-width: 400px) {
     padding: 0 1px;
     font-size: 1px;
-  }
+  } */
 
   &::before {
     content: "";

@@ -10,12 +10,13 @@ import {
   useRef,
   useState,
 } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
-const StyledModal = styled.div`
+const StyledModal = styled(motion.div)`
   position: fixed;
-  top: 50%;
+  /* top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
   background-color: var(--color-bg-0);
   border-radius: 8px;
   padding: 2rem;
@@ -28,6 +29,12 @@ const StyledContentContainer = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
   padding-right: 1rem;
+
+  @media (max-width: 570px) {
+    h1 {
+      font-size: 3rem;
+    }
+  }
 
   &::-webkit-scrollbar {
     width: 4px;
@@ -47,7 +54,7 @@ const StyledContentContainer = styled.div`
   }
 `;
 
-const Overlay = styled.div`
+const MotionOverlay = styled(motion.div)`
   position: fixed;
   top: 0;
   left: 0;
@@ -55,7 +62,10 @@ const Overlay = styled.div`
   height: 100vh;
   backdrop-filter: blur(4px);
   z-index: 1000;
-  transition: all 0.5s;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const StyledButtonContainer = styled.div`
@@ -119,6 +129,34 @@ function Window({ children, name }) {
   const { openName, close } = useContext(ModalContext);
   const ref = useRef();
 
+  const modalVariants = {
+    hidden: {
+      opacity: 0,
+      y: -80,
+      scale: 0.95,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 500,
+        damping: 25,
+        mass: 0.5,
+      },
+    },
+    exit: {
+      opacity: 0,
+      y: 30,
+      scale: 0.95,
+      transition: {
+        duration: 0.15,
+        ease: "easeInOut",
+      },
+    },
+  };
+
   useEffect(
     function () {
       if (name !== openName) {
@@ -158,17 +196,29 @@ function Window({ children, name }) {
   if (name !== openName) return null;
 
   return createPortal(
-    <Overlay>
-      <StyledModal ref={ref}>
-        <StyledButtonContainer onClick={(e) => e.stopPropagation()}>
-          <DarkModeToggle />
-          <button onClick={close}>
-            <IoIosClose />
-          </button>
-        </StyledButtonContainer>
-        <StyledContentContainer>{children}</StyledContentContainer>
-      </StyledModal>
-    </Overlay>,
+    <AnimatePresence>
+      <MotionOverlay
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        <StyledModal
+          ref={ref}
+          variants={modalVariants}
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+        >
+          <StyledButtonContainer onClick={(e) => e.stopPropagation()}>
+            <DarkModeToggle />
+            <button onClick={close}>
+              <IoIosClose />
+            </button>
+          </StyledButtonContainer>
+          <StyledContentContainer>{children}</StyledContentContainer>
+        </StyledModal>
+      </MotionOverlay>
+    </AnimatePresence>,
     document.body
   );
 }

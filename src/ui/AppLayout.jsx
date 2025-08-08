@@ -1,8 +1,9 @@
 import { styled } from "styled-components";
 import MainPanel from "./MainPanel";
 import SidePanel from "./SidePanel";
+import { motion } from "framer-motion";
 
-const StyledAppLayout = styled.div`
+const StyledAppLayout = styled(motion.div)`
   background-color: var(--color-bg-2);
   padding: 2.4rem;
   display: grid;
@@ -18,8 +19,33 @@ const StyledAppLayout = styled.div`
 `;
 
 function AppLayout() {
+  const layoutVariants = {
+    hidden: {
+      y: -100,
+    },
+    visible: {
+      y: 0,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut",
+      },
+    },
+    exit: {
+      y: -100,
+      transition: {
+        duration: 0.2,
+        ease: "easeIn",
+      },
+    },
+  };
+
   return (
-    <StyledAppLayout>
+    <StyledAppLayout
+      variants={layoutVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
       <SidePanel />
       <MainPanel />
     </StyledAppLayout>

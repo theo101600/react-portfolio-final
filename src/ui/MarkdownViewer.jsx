@@ -50,7 +50,7 @@ const StyledMarkdownViewer = styled.div`
   table {
     width: 100%;
     border-collapse: collapse;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
   }
 
   th,
@@ -59,8 +59,8 @@ const StyledMarkdownViewer = styled.div`
     padding: 0.6rem;
     text-align: left;
 
-    @media (max-width: 800px) {
-      font-size: 1.3rem;
+    @media (max-width: 500px) {
+      font-size: 1rem;
     }
   }
 

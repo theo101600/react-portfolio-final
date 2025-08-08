@@ -20,11 +20,13 @@ const StyledButton = styled.button`
   border: none;
   padding: 0.44rem 0.8rem;
   transition: all 0.3s;
+  color: var(--color-text-a-0);
 
   ${(props) =>
     props.active &&
     css`
       background-color: var(--color-primary);
+      color: var(--color-text-b-0);
     `}
 
   &:hover {

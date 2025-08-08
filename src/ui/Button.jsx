@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { motion } from "framer-motion";
 
 const sizes = {
   small: css`
@@ -47,7 +48,7 @@ const variations = {
   `,
 };
 
-const Button = styled.button`
+const Button = styled(motion.button)`
   border: none;
   border-radius: var(--border-radius-sm);
   box-shadow: var(--shadow-sm);
