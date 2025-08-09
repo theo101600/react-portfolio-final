@@ -3,6 +3,18 @@ import styled from "styled-components";
 import "leaflet/dist/leaflet.css";
 import { FaSmile } from "react-icons/fa";
 import { useDarkMode } from "../context/DarkModeContext";
+import L from "leaflet";
+
+import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
+import markerIcon from "leaflet/dist/images/marker-icon.png";
+import markerShadow from "leaflet/dist/images/marker-shadow.png";
+
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: markerIcon2x,
+  iconUrl: markerIcon,
+  shadowUrl: markerShadow,
+});
 
 const StyledMapContainer = styled(MapContainer)`
   height: 100%;
@@ -14,6 +26,7 @@ const StyledMapContainer = styled(MapContainer)`
 
 function Map() {
   const { isDarkMode } = useDarkMode();
+
   return (
     <StyledMapContainer
       center={[15.4852, 120.5874]}
