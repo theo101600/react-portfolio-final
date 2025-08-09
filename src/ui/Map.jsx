@@ -16,7 +16,7 @@ function Map() {
   const { isDarkMode } = useDarkMode();
   return (
     <StyledMapContainer
-      center={[14.5995, 120.9842]}
+      center={[15.4852, 120.5874]}
       zoom={10}
       scrollWheelZoom={true}
     >
@@ -28,7 +28,7 @@ function Map() {
             : "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         }
       />
-      <Marker position={[14.5995, 120.9842]}>
+      <Marker position={[15.4852, 120.5874]}>
         <Popup>
           <h1>
             I'm here <FaSmile />

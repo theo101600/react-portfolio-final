@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import HomeNav from "./HomeNav";
-import { HiMiniCubeTransparent } from "react-icons/hi2";
+import { HiMiniCube } from "react-icons/hi2";
 import DarkModeToggle from "./DarkModeToggle";
 
 const StyledHomeHeader = styled.div`
@@ -28,7 +28,7 @@ const StyledHomeHeader = styled.div`
 function HomeHeader() {
   return (
     <StyledHomeHeader>
-      <HiMiniCubeTransparent size={50} />
+      <HiMiniCube size={50} />
       <div style={{ display: "flex", flexDirection: "row" }}>
         <HomeNav />
         <DarkModeToggle />

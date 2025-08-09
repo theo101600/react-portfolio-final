@@ -143,7 +143,7 @@ function Homepage() {
           <Squares
             speed={0.4}
             squareSize={40}
-            direction="down" // up, down, left, right, diagonal
+            direction="down"
             borderColor={!isDarkMode ? "#fffbf2" : "#000000"}
             hoverFillColor="#f07167"
           />
@@ -151,9 +151,9 @@ function Homepage() {
         <div>
           <h1>
             Hi, <br />
-            HFNSOUTN
+            I'm Theo
           </h1>
-          <h2>HANLGUIRNALSHE</h2>
+          <h2>Web Developer</h2>
           <StyledButtonContainer>
             <Button
               onClick={() => navigate("/contact")}
@@ -167,7 +167,7 @@ function Homepage() {
             <Socials />
           </StyledButtonContainer>
         </div>
-        <Img src="/profile-image.jpg"></Img>
+        {/* <Img src="/profile-image.jpg"></Img> */}
       </StyledContainer>
     </StyledHomepage>
   );

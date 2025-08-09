@@ -1,11 +1,13 @@
 import { styled } from "styled-components";
 import DarkModeToggle from "./DarkModeToggle";
 import ProfileImage from "./ProfileImage";
+import { BsPersonBoundingBox } from "react-icons/bs";
 import ProfileInfo from "./ProfileInfo";
 import { MdEmail } from "react-icons/md";
 import { IoMdPhonePortrait } from "react-icons/io";
 import { FaMapLocationDot } from "react-icons/fa6";
 import Socials from "./Socials";
+import { useNavigate } from "react-router";
 
 const StyledSidePanel = styled.div`
   background-color: var(--color-bg-1);
@@ -50,29 +52,62 @@ const StyledSidePanel = styled.div`
   }
 `;
 
+const StyledProfileIcon = styled.div`
+  margin: 2rem 0;
+`;
+
+const StyledFooterContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const Footer = styled.footer`
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--color-bg-1);
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--color-border);
+`;
+
 function SidePanel() {
+  const navigate = useNavigate();
+
   return (
     <StyledSidePanel>
-      <ProfileImage />
-      <h1>Theo Lorem Ipsum</h1>
+      <StyledProfileIcon>
+        <BsPersonBoundingBox
+          onClick={() => {
+            navigate("/");
+          }}
+          size={100}
+        />
+      </StyledProfileIcon>
+      <h1>Theo Lacanaria</h1>
       <span>Web Developer</span>
       <hr />
       <ProfileInfo
         icon={<MdEmail size={32} />}
         category={"Email"}
-        value={"theo@example.com"}
+        value={"theo.lacanaria.com"}
       />
       <ProfileInfo
         icon={<IoMdPhonePortrait size={32} />}
         category={"Phone"}
-        value={"+63 969696969"}
+        value={"+63 952318536"}
       />
       <ProfileInfo
         icon={<FaMapLocationDot size={32} />}
         category={"Location"}
-        value={"Somewhere, Philippines"}
+        value={"Tarlac, Philippines"}
       />
-      <Socials />
+      <StyledFooterContainer>
+        <Socials />
+        <Footer>
+          Built with <strong>React</strong> | © 2025 Theo Lacanaria
+        </Footer>
+      </StyledFooterContainer>
     </StyledSidePanel>
   );
 }

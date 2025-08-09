@@ -47,6 +47,7 @@ const StyledForm = styled.form`
   textarea {
     padding: 0.75rem 1rem;
     border: 0;
+    border-radius: 8px;
     background-color: var(--color-text-a-0);
     color: var(--color-text-b-0);
     transition: border 0.3s, box-shadow 0.3s;

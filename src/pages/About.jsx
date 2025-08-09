@@ -3,9 +3,25 @@ import SkillCard from "../ui/SkillCard";
 import { FaCode } from "react-icons/fa6";
 import { PiCircuitryFill } from "react-icons/pi";
 import { IoIosCube } from "react-icons/io";
-import ButtonIcon from "../ui/ButtonIcon";
-import { MdFileDownload } from "react-icons/md";
 import CertificateItem from "../ui/CertificateItem";
+import TechStackArray from "../ui/TechStackArray";
+
+const tech_stack = [
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "React",
+  "NodeJs",
+  "git",
+  "github",
+  "Python",
+  "Supabase",
+  "VisualStudioCode",
+  "KiCad",
+  "SolidWorks",
+  "Photoshop",
+  "Figma",
+];
 
 const skills = [
   {
@@ -98,6 +114,7 @@ const StyledAbout = styled.div`
 
 const StyledIntro = styled.div`
   margin-top: 2rem;
+  margin-right: 2rem;
   p {
     text-indent: 2rem;
   }
@@ -124,18 +141,17 @@ function About() {
     <StyledAbout>
       <StyledIntro>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro enim
-          necessitatibus laborum repellendus aliquam aut, asperiores vel vitae
-          dolore eos ratione, debitis ut incidunt dolorum accusantium. Ipsum
-          quam sapiente facere?
+          Electronics Engineering graduate and Design Engineer with a deep
+          passion for web development. I specialize in creating modern,
+          responsive applications with React, blending my engineering
+          problem-solving skills with clean, user-focused design. Continuously
+          learning through bootcamps and hands-on projects, currently finishing
+          my React bootcamp, and planning to start express and MongoDB to
+          solidify my backend knowledge.
         </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
-          animi officiis perferendis soluta voluptas quae, voluptatum iste
-          dolorum ut architecto sit dicta nostrum inventore enim corrupti
-          tempore. Possimus, vel sit.
-        </p>
+        <p>Below are some of the technologies and tools I work with:</p>
       </StyledIntro>
+      <TechStackArray tech_stack={tech_stack} />
       <h1>What I'm doing</h1>
       <StyledSkillContainer>
         {skills.map((skill, index) => (

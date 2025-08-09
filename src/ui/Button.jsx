@@ -38,14 +38,6 @@ const variations = {
       background-color: var(--color-secondary-dark);
     }
   `,
-  danger: css`
-    color: var(--color-red-100);
-    background-color: var(--color-red-700);
-
-    &:hover {
-      background-color: var(--color-red-800);
-    }
-  `,
 };
 
 const Button = styled(motion.button)`
