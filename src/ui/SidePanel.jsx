@@ -90,7 +90,7 @@ function SidePanel() {
       <ProfileInfo
         icon={<MdEmail size={32} />}
         category={"Email"}
-        value={"theo.lacanaria.com"}
+        value={"theo.lacanaria@gmail.com"}
       />
       <ProfileInfo
         icon={<IoMdPhonePortrait size={32} />}
