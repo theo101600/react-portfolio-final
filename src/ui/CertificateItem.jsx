@@ -19,7 +19,7 @@ const StyledCertificateItem = styled.div`
   display: flex;
   flex-direction: column;
   width: 300px;
-  height: 100px;
+  height: 120px;
   padding: 1rem;
   border-radius: 8px;
   background-color: var(--color-bg-0);
@@ -68,7 +68,7 @@ function CertificateItem({ certificate }) {
     <StyledCertificateItem
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      expanded={isHovered}
+      expanded={false}
     >
       <StyledCertificateContent>
         <StyledCertificateInfo>
@@ -91,7 +91,7 @@ function CertificateItem({ certificate }) {
       <StyledCertificateImage
         src={certificate.imagePath}
         alt={certificate.name}
-        visible={isHovered}
+        visible={false}
       />
     </StyledCertificateItem>
   );

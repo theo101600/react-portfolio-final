@@ -78,6 +78,42 @@ const certificates = [
     imagePath:
       "https://gomfxmkebyzbqwrxvdkj.supabase.co/storage/v1/object/public/images/certificate-images/CertificateOfCompletion_Figma%20Essential%20Training%20The%20Basics.png",
   },
+  {
+    name: "The Ultimate React Course 2025 React, Next.js, Redux & More",
+    issuer: "Udemy",
+    date: "September, 2025",
+    pdfPath:
+      "https://gomfxmkebyzbqwrxvdkj.supabase.co/storage/v1/object/public/certificates/UC-69a971eb-bdcd-4754-b5cb-11372a3538bb%20(1).pdf",
+    imagePath:
+      "https://gomfxmkebyzbqwrxvdkj.supabase.co/storage/v1/object/public/images/certificate-images/UC-69a971eb-bdcd-4754-b5cb-11372a3538bb.jpg",
+  },
+  {
+    name: "The Git & Github Bootcamp",
+    issuer: "Udemy",
+    date: "September, 2025",
+    pdfPath:
+      "https://gomfxmkebyzbqwrxvdkj.supabase.co/storage/v1/object/public/certificates/UC-d5a73169-49b6-4c73-9904-0980bc2c5e63.pdf",
+    imagePath:
+      "https://gomfxmkebyzbqwrxvdkj.supabase.co/storage/v1/object/public/images/certificate-images/UC-d5a73169-49b6-4c73-9904-0980bc2c5e63.jpg",
+  },
+  {
+    name: "Node.js, Express, MongoDB & More The Complete Bootcamp",
+    issuer: "Udemy",
+    date: "November, 2025",
+    pdfPath:
+      "https://gomfxmkebyzbqwrxvdkj.supabase.co/storage/v1/object/public/certificates/UC-5f6259f7-7406-40d7-aa03-fca289894933%20(1).pdf",
+    imagePath:
+      "https://gomfxmkebyzbqwrxvdkj.supabase.co/storage/v1/object/public/images/certificate-images/UC-5f6259f7-7406-40d7-aa03-fca289894933.jpg",
+  },
+  {
+    name: "React & TypeScript - The Practical Guide",
+    issuer: "Udemy",
+    date: "December, 2025",
+    pdfPath:
+      "https://gomfxmkebyzbqwrxvdkj.supabase.co/storage/v1/object/public/certificates/UC-e7fb797e-2842-44c7-8522-ec9e5887abaf.pdf",
+    imagePath:
+      "https://gomfxmkebyzbqwrxvdkj.supabase.co/storage/v1/object/public/images/certificate-images/UC-e7fb797e-2842-44c7-8522-ec9e5887abaf.jpg",
+  },
 ];
 
 const StyledAbout = styled.div`
@@ -146,8 +182,7 @@ function About() {
           responsive applications with React, blending my engineering
           problem-solving skills with clean, user-focused design. Continuously
           learning through bootcamps and hands-on projects, currently finishing
-          my React bootcamp, and planning to start express and MongoDB to
-          solidify my backend knowledge.
+          Docker course to strengthen my knowledge on deployments.
         </p>
         <p>Below are some of the technologies and tools I work with:</p>
       </StyledIntro>
